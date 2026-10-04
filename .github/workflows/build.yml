@@ -59,19 +59,6 @@ jobs:
         echo $PWD
         ls deploy/
     
-    - name: Deploy to Steam
-      uses: game-ci/steam-deploy@v3
-      with:
-        username: ${{ secrets.STEAM_USERNAME }}
-        configVdf: ${{ secrets.STEAM_CONFIG_VDF}}
-        appId: 1127400
-        buildDescription: Bleeding-Edge Build ${{ env.RELEASE_VERSION }}
-        rootPath: Mindustry/deploy
-        depot2Path: Windows64
-        depot3Path: Linux64
-        depot4Path: MacOS
-        releaseBranch: bleeding-edge
-    
     - name: Upload desktop artifacts
       uses: svenstaro/upload-release-action@v2
       with:
